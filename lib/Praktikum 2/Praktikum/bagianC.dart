@@ -2,6 +2,19 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
 
+class Makanan {
+  final String nama;
+  final int harga;
+  const Makanan(this.nama, this.harga);
+}
+
+final List<Makanan> daftarMenu = const [
+  Makanan('Nasi Goreng', 15000),
+  Makanan('Mie Ayam', 12000),
+  Makanan('Es Teh', 4000),
+  Makanan('Ayam Bakar', 20000),
+];
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -9,40 +22,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Praktikum 2',
-      theme: ThemeData(
-        colorSchemeSeed: Colors.blue,
-        useMaterial3: true,
-      ),
+      theme: ThemeData(colorSchemeSeed: Colors.blue, useMaterial3: true),
       home: const MenuPage(),
     );
   }
 }
-
-// =========================
-// MODEL MAKANAN
-// =========================
-
-class Makanan {
-  final String nama;
-  final int harga;
-
-  const Makanan(this.nama, this.harga);
-}
-
-// =========================
-// DATA MENU
-// =========================
-
-const daftarMenu = [
-  Makanan('Nasi Goreng', 15000),
-  Makanan('Mie Ayam', 12000),
-  Makanan('Es Teh', 4000),
-  Makanan('Ayam Bakar', 20000),
-];
-
-// =========================
-// HALAMAN MENU
-// =========================
 
 class MenuPage extends StatelessWidget {
   const MenuPage({super.key});
@@ -50,34 +34,23 @@ class MenuPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Daftar Menu'),
-      ),
+      appBar: AppBar(title: const Text('Daftar Menu')),
       body: ListView.builder(
         itemCount: daftarMenu.length,
         itemBuilder: (context, index) {
           final item = daftarMenu[index];
-
           return Card(
-            margin: const EdgeInsets.symmetric(
-              horizontal: 12,
-              vertical: 6,
-            ),
+            margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
             child: ListTile(
               leading: const Icon(Icons.restaurant),
               title: Text(item.nama),
               subtitle: Text('Rp ${item.harga}'),
               trailing: const Icon(Icons.chevron_right),
-
-              // Ketika menu diklik
+              // Menambahkan navigasi onTap
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                    builder: (_) => DetailPage(
-                      makanan: item,
-                    ),
-                  ),
+                  MaterialPageRoute(builder: () => DetailPage(makanan: item)),
                 );
               },
             ),
@@ -88,48 +61,24 @@ class MenuPage extends StatelessWidget {
   }
 }
 
-// =========================
-// HALAMAN DETAIL
-// =========================
-
+// Halaman baru yang menerima data dari MenuPage
 class DetailPage extends StatelessWidget {
   final Makanan makanan;
-
-  const DetailPage({
-    super.key,
-    required this.makanan,
-  });
+  const DetailPage({super.key, required this.makanan});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(makanan.nama),
-      ),
+      appBar: AppBar(title: Text(makanan.nama)),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Icon(
-              Icons.restaurant_menu,
-              size: 80,
-            ),
-
+            const Icon(Icons.restaurant_menu, size: 80),
             const SizedBox(height: 16),
-
-            Text(
-              makanan.nama,
-              style: const TextStyle(
-                fontSize: 24,
-              ),
-            ),
-
-            Text(
-              'Rp ${makanan.harga}',
-            ),
-
+            Text(makanan.nama, style: const TextStyle(fontSize: 24)),
+            Text('Rp ${makanan.harga}'),
             const SizedBox(height: 24),
-
             ElevatedButton(
               onPressed: () => Navigator.pop(context),
               child: const Text('Kembali'),

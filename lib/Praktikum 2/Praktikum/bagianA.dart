@@ -9,25 +9,18 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Praktikum 2',
-      theme: ThemeData(
-        colorSchemeSeed: Colors.blue,
-        useMaterial3: true,
-      ),
+      theme: ThemeData(colorSchemeSeed: Colors.blue, useMaterial3: true),
       home: const ProfilePage(),
     );
   }
 }
-
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.blue,
-        title: const Text('Profil'),
-      ),
+      appBar: AppBar(title: const Text('Profil')),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Container(
@@ -40,10 +33,7 @@ class ProfilePage extends StatelessWidget {
             children: [
               const CircleAvatar(
                 radius: 32,
-                child: Icon(
-                  Icons.person,
-                  size: 32,
-                ),
+                child: Icon(Icons.person, size: 32),
               ),
               const SizedBox(width: 16),
               Expanded(
@@ -51,13 +41,10 @@ class ProfilePage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: const [
                     Text(
-                      '[Muhammad Aditya]',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      'Muhammad Aditya',
+                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
-                    Text('[20240801234]'),
+                    Text('NIM: 20240801234'),
                   ],
                 ),
               ),
