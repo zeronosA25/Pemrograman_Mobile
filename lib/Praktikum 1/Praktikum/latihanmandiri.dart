@@ -1,0 +1,69 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Praktikum 1',
+      home: const CounterPage(),
+    );
+  }
+}
+
+class CounterPage extends StatefulWidget {
+  const CounterPage({super.key});
+
+  @override
+  State<CounterPage> createState() => _CounterPageState();
+}
+
+class _CounterPageState extends State<CounterPage> {
+  int _count = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.green,
+        title: const Text('Mencoba Praktikum 1'),
+      ),
+      body: Center(
+        child: Text(
+          '$_count',
+          style: const TextStyle(
+            fontSize: 120,
+            color: Colors.red,
+          ),
+        ),
+      ),
+
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+            onPressed: () => setState(() => _count = 0),
+            child: const Icon(Icons.refresh),
+          ),
+          FloatingActionButton(
+            onPressed: () {
+              if (_count > 0) {
+                setState(() => _count--);
+              }
+            },
+            child: const Icon(Icons.remove),
+          ),
+          FloatingActionButton(
+            onPressed: () => setState(() => _count++),
+            child: const Icon(Icons.add),
+          ),
+        ],
+      ),
+    );
+  }
+}
