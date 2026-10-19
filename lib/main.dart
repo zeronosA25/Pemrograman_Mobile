@@ -6,7 +6,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 final themeMode = ValueNotifier<ThemeMode>(ThemeMode.light);
 final seedColor = ValueNotifier<Color>(Colors.indigo);
 
-const pilihanWarna = [
+// Deklarasi eksplisit List<Color> untuk mencegah Type Mismatch dengan MaterialColor
+const List<Color> pilihanWarna = [
   Colors.indigo,
   Colors.teal,
   Colors.deepOrange,
@@ -124,7 +125,6 @@ class MyApp extends StatelessWidget {
           routes: {
             '/': (context) => const ShellPage(),
           },
-          // Named route dengan argumen dan transisi custom FadeTransition
           onGenerateRoute: (settings) {
             if (settings.name == '/detail') {
               final item = settings.arguments as ItemKatalog;
@@ -214,7 +214,6 @@ class _BerandaTabState extends State<BerandaTab>
   @override
   void initState() {
     super.initState();
-    // Animasi Eksplisit 1: AnimationController untuk rotasi lencana promo
     _rotationController = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 4),
@@ -234,7 +233,6 @@ class _BerandaTabState extends State<BerandaTab>
     return ListView(
       padding: const EdgeInsets.all(16),
       children: [
-        // Banner Promo dengan Animasi Eksplisit Rotasi
         Card(
           color: tema.colorScheme.primaryContainer,
           child: Padding(
@@ -481,8 +479,6 @@ class _DetailPageState extends State<DetailPage> {
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 24),
-              
-              // Animasi Implisit: AnimatedContainer interaktif saat ditekan
               GestureDetector(
                 onTap: () {
                   setState(() {
