@@ -1,0 +1,30 @@
+# SDK & tools - jangan pernah di-push
+/Android/
+/flutter/
+/play/
+
+# Repo app terpisah (sudah ada di branch main)
+/pemrogramanmobile/
+
+# Installer besar
+/*.deb
+
+# Artefak build/cache Flutter
+**/build/
+**/.dart_tool/
+**/.flutter-plugins
+**/.flutter-plugins-dependencies
+**/.pub/
+**/.pub-cache/
+**/.idea/
+**/*.iml
+
+# Artefak Android
+**/android/.gradle/
+**/android/app/debug/
+**/android/app/profile/
+**/android/app/release/
+
+# Artefak iOS
+**/ios/Pods/
+**/ios/.symlinks/
