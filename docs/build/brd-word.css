@@ -1,0 +1,210 @@
+@page {
+  size: A4;
+  margin: 2cm;
+}
+
+html {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+body {
+  font-family: "Liberation Serif", "Times New Roman", Times, serif;
+  font-size: 12pt;
+  line-height: 1.32;
+  color: #000000;
+  margin: 0;
+  padding: 0;
+  text-align: justify;
+}
+
+/* ---------- Title block (Word style) ---------- */
+.doc-title {
+  text-align: center;
+  margin: 0 0 14pt 0;
+}
+
+.doc-title p {
+  font-family: "Liberation Sans", Arial, Helvetica, sans-serif;
+  font-size: 14pt;
+  font-weight: bold;
+  line-height: 1.2;
+  text-align: center;
+  margin: 0 0 2pt 0;
+}
+
+/* ---------- Headings ---------- */
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Liberation Sans", Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: #000000;
+  line-height: 1.2;
+  page-break-after: avoid;
+  break-after: avoid;
+}
+
+h2 {
+  font-size: 12pt;
+  margin: 14pt 0 6pt 0;
+}
+
+h3 {
+  font-size: 12pt;
+  margin: 12pt 0 4pt 0;
+}
+
+h4 {
+  font-size: 12pt;
+  margin: 10pt 0 4pt 0;
+}
+
+/* ---------- Paragraphs ---------- */
+p {
+  margin: 0 0 8pt 0;
+  text-align: justify;
+  orphans: 2;
+  widows: 2;
+}
+
+/* ---------- Lists ---------- */
+ul,
+ol {
+  margin: 0 0 8pt 0;
+  padding-left: 1.25cm;
+}
+
+li {
+  margin: 0 0 8pt 0;
+  text-align: justify;
+}
+
+ul > li::marker {
+  color: #000000;
+}
+
+/* ---------- Tables ---------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 6pt 0 10pt 0;
+  font-size: 11pt;
+  line-height: 1.25;
+}
+
+thead {
+  display: table-header-group;
+}
+
+th,
+td {
+  border: 0.5pt solid #000000;
+  padding: 3pt 4pt;
+  text-align: left;
+  vertical-align: top;
+  word-wrap: break-word;
+}
+
+th {
+  font-weight: bold;
+  background: transparent;
+}
+
+tr {
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+/* ---------- Code ---------- */
+code {
+  font-family: "Liberation Mono", "Courier New", Courier, monospace;
+  font-size: 10pt;
+  color: #000000;
+  background: transparent;
+  padding: 0;
+}
+
+pre {
+  font-family: "Liberation Mono", "Courier New", Courier, monospace;
+  font-size: 8.5pt;
+  line-height: 1.2;
+  color: #000000;
+  background: #ffffff;
+  border: 0.5pt solid #000000;
+  padding: 4pt;
+  margin: 6pt 0 10pt 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+pre code {
+  font-size: inherit;
+  background: transparent;
+}
+
+/* ---------- Images ---------- */
+figure {
+  margin: 6pt 0;
+  text-align: center;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+img {
+  max-width: 64%;
+  height: auto;
+}
+
+p > img,
+figure img {
+  display: block;
+  margin: 6pt auto;
+  max-width: 64%;
+}
+
+figcaption {
+  font-size: 10pt;
+  text-align: center;
+  margin-top: 2pt;
+}
+
+/* ---------- Links ---------- */
+a {
+  color: #000080;
+  text-decoration: underline;
+}
+
+/* ---------- Misc ---------- */
+strong {
+  font-weight: bold;
+  color: #000000;
+}
+
+blockquote {
+  margin: 6pt 0 6pt 1.25cm;
+  padding: 0;
+  border: none;
+  color: #000000;
+}
+
+hr {
+  border: none;
+  border-top: 0.5pt solid #000000;
+  margin: 8pt 0;
+}
+
+h2 + p,
+h3 + p,
+h2 + table,
+h3 + table {
+  margin-top: 0;
+}
+
+h2#diagram-use-case {
+  page-break-before: always;
+  break-before: page;
+}
